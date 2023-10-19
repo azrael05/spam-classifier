@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+</head>
+<body>
+
+    <script>
+        function clicked() {
+            console.log("clicked")
+            let data = document.getElementById("text").textContent
+                $.ajax({ 
+                url: '/predict', 
+                type: 'GET', 
+                data: {'text':data},
+                success: function(response){ 
+                    document.getElementById("res").textContent = response 
+                } 
+                })
+        }
+    </script>
+
+    <textarea id="text"></textarea>
+    <button onclick="clicked()"></button>
+    <p id="res">{{Res}}</p>
+</body>
+</html>
